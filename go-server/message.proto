@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package message;
+option go_package = "./grpc";
+option java_package = "link.zhefuz.grpc";
+
+
+message Message {
+  uint32 id = 1;
+  string content = 2;
+  string encryption_method = 3;
+  string cipher_text = 4;
+}
+
+
+service MessageService {
+
+  rpc EncryptMessage (Message) returns (Message);
+  rpc GetMessage (Message) returns (Message);
+  rpc DecryptMessage (Message) returns (Message);
+}
